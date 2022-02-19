@@ -4,7 +4,7 @@ import {useState } from "react"
 
 
 
-const AddCard = () => {
+const AddCardPage = () => {
 
 
     const[addedCard, setAddedCard] = useState(false)
@@ -18,4 +18,4 @@ const AddCard = () => {
 }
 
  
-export default AddCard;
+export default AddCardPage;

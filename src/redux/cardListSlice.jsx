@@ -30,11 +30,15 @@ const cardListSlice = createSlice({
             cvv: "666"
         }
     ],
-        status: null
+        status: null,
+        started: false
     },
     reducers: { 
         addCard: (state, {payload}) =>{
             state.cards.push(payload);
+        },
+        startApp: (state, {payload}) =>{
+            state.started = payload;
         }
         //Använda filter och splice som detta exempel.
         // case DELETE_TODO: 
@@ -73,6 +77,6 @@ const cardListSlice = createSlice({
 
 })
 
-export const {addCard} = cardListSlice.actions; 
+export const {addCard, startApp} = cardListSlice.actions; 
  
 export default  cardListSlice.reducer;

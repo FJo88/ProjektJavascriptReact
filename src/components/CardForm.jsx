@@ -1,4 +1,3 @@
-
 import Card from "./Card"
 import {useState, useEffect} from "react"
 import { useDispatch, useSelector} from "react-redux"
@@ -15,7 +14,7 @@ const CardForm = (props) => {
     const[cvv, setCvv] = useState(0);
     const[vendor, setVendor] = useState("");
 
-    const { holder, cards } = useSelector((state) => state.cardList);
+    const { holder , cards } = useSelector((state) => state.cardList);
    
      let createCard = () => {  
         props.setaddedcard(true)

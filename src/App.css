@@ -9,11 +9,9 @@ header{
   border: solid black 2px;
   height: 200px;
 }
-footer{
-  margin-top: 300px;
-}
+
 .container{
-  min-height: 50vh;
+  min-height: 45vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -163,5 +161,17 @@ footer{
 .gohome{
   font-size: 1.5rem;
   margin: 50px;
+}
+.startbutton{
+  font-size: 3rem;
+  margin-top: 50px;
+}
+.addcardbutton{
+  font-size: 3rem;
+  margin-top: 20px;
+}
+.active{
+  border: solid black 3px;
+  margin-bottom: 50px;
 }
 
