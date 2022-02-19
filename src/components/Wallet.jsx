@@ -1,13 +1,16 @@
 import {useSelector} from "react-redux"
 import Card from "../components/Card"
 import {Link} from "react-router-dom"
+import {deleteCard} from "../redux/cardListSlice"
+import { useDispatch } from "react-redux"
 
 
 const Wallet = () => {
+    const dispatch = useDispatch();
     const { holder, cards, status } = useSelector((state) => state.cardList);
-    console.log(holder.firstName)
+    // console.log(holder.firstName)
     console.log(cards);
-
+   
    
     return ( 
     <div>
@@ -17,6 +20,7 @@ const Wallet = () => {
                     <div key={i} className="active">
                         <h1>Active Card:</h1>
                      <Card
+                        id={card.id}
                         cardnumber1={card.cardnumber1}
                         cardnumber2={card.cardnumber2}
                         cardnumber3={card.cardnumber3}
@@ -37,6 +41,7 @@ const Wallet = () => {
             <div key={i} style={{marginTop:-180}}>
                <div style={{zIndex:i-1, position: "absolute", marginTop:(i+1)*200, marginLeft: 700 }}>
                 <Card 
+                    id={card.id}
                     cardnumber1={card.cardnumber1}
                     cardnumber2={card.cardnumber2}
                     cardnumber3={card.cardnumber3}
@@ -47,7 +52,7 @@ const Wallet = () => {
                     vendor={card.vendor}
                 />
                 
-                    <button style={{position: "absolute",marginLeft:380, marginTop: -260, width: 150, fontSize: 25}}>Remove</button>
+                    <button onClick={() => dispatch(deleteCard(card.id))} style={{position: "absolute",marginLeft:380, marginTop: -260, width: 150, fontSize: 25}}>Remove</button>
                     <button style={{position: "absolute",marginLeft:380, marginTop: -200, width: 150, fontSize: 25}}>set Active</button>
                 
                 </div>

@@ -19,6 +19,7 @@ const CardForm = (props) => {
      let createCard = () => {  
         props.setaddedcard(true)
         dispatch(addCard({
+        id: Date.now(),
         cardnumber1: cardnumber1,
         cardnumber2: cardnumber2,
         cardnumber3: cardnumber3,
