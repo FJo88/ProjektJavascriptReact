@@ -1,22 +1,24 @@
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
 import Card from "../components/Card"
 import {Link} from "react-router-dom"
 import {deleteCard, setActive} from "../redux/cardListSlice"
-import { useDispatch } from "react-redux"
+
 
 
 const Wallet = () => {
     const dispatch = useDispatch();
-    const { holder, cards, status } = useSelector((state) => state.cardList);
-    // console.log(holder.firstName)
+    const { cards, holder } = useSelector((state) => state.cardList);
+    
     console.log(cards);
 
     window.addEventListener("beforeunload", function (e) {
     e.preventDefault();
     e.returnValue = "";})
 
+
     return ( 
     <div>
+        <h1>{holder.firstName} {holder.lastName}´s-Wallet: </h1>
         <div>
             {cards.slice(0,1).map((card, i) =>{
                 return(
@@ -36,9 +38,11 @@ const Wallet = () => {
                     </div>
                 )
             })}
-            <Link to={"/addcard"}><button className="addcardbutton">Add new Card</button></Link>
+            <div>
+            {cards.length < 4 ? <Link to={"/addcard"}><button className="addcardbutton">Add new Card</button></Link>: <h2>You reached max number of cards!</h2>}
+            </div>
         </div>
-        
+        <div className="rest">
         {cards.slice(1,4).map((card, i) => {
         return (
             <div key={i} style={{marginTop:-180}}>
@@ -62,6 +66,8 @@ const Wallet = () => {
                
             </div>
         )})}
+        </div>
+        
     </div> );
 }
  

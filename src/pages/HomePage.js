@@ -1,6 +1,6 @@
 import Wallet from "../components/Wallet"
 import {startApp} from "../redux/cardListSlice"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux"
 
 
 const Home = () => {
@@ -14,7 +14,6 @@ const Home = () => {
     return ( 
     <div className="home">
     {!started ? <button className="startbutton" onClick={() => start()}>Start Application</button>: <Wallet/> }
-        
     </div> );
 }
  

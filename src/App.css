@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+body{
+  background-image: linear-gradient(90deg, #f8fb1e, #19e0e0);
+}
 
 header{
   display: flex;
@@ -8,6 +11,7 @@ header{
   align-items: center;
   border: solid black 2px;
   height: 200px;
+  border-radius: 50px;
 }
 
 .container{
@@ -34,11 +38,11 @@ header{
 .front, .back{
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(45deg, #0045c7, #ff2c7d);
+  background-image: linear-gradient(45deg, #f10c58, #0e1b1b);
   position: absolute;
   top: 0;
   left: 0;
-  padding: 0px 30px;
+  padding: 25px 30px;
   border-radius: 15px;
   overflow: hidden;
   z-index: 1;
@@ -122,7 +126,6 @@ header{
   align-items: center;
   width: 100%;
   height: 600px;
-  border: solid black 2px;
 }
 #cardnum{
   width: 45px;
@@ -155,21 +158,84 @@ header{
   margin-left: 30%;
 }
 .submit{
+  width: 280px;
+  height: 60px;
   margin: 20px;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  border-radius: 30px;
+}
+.submit:hover{
+  color: rgb(3, 3, 3);
+  box-shadow: 0 10px 30px rgba(145, 92, 182, .4);
 }
 .gohome{
-  font-size: 1.5rem;
-  margin: 50px;
+  position: absolute;
+  margin-left: 40%;
+  margin-top: 40px;
+  font-size: 1.8rem;
+  outline: none;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 80px;
+  width: 340px;
+  opacity: 2;
+  background-color: #fbf8f9;
+  border: 1px solid rgba(11, 11, 12, 0.6)
+}
+.gohome:hover{
+  color: rgb(3, 3, 3);
+  box-shadow: 0 10px 30px rgba(145, 92, 182, .4);
 }
 .startbutton{
-  font-size: 3rem;
+  position: absolute;
+  margin-left: 39%;
   margin-top: 50px;
+  font-size: 2rem;
+  outline: none;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 120px;
+  width: 420px;
+  opacity: 2;
+  background-color: #fbf8f9;
+  border: 1px solid rgba(11, 11, 12, 0.6)
+}
+.startbutton:hover{
+  color: rgb(3, 3, 3);
+  box-shadow: 0 10px 30px rgba(145, 92, 182, .4);
 }
 .addcardbutton{
-  font-size: 3rem;
-  margin-top: 20px;
-  margin-left: 50px;
+  position: absolute;
+  margin-left: 42%;
+  margin-top: 10px;
+  font-size: 2rem;
+  outline: none;
+  text-decoration: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 70px;
+  width: 340px;
+  opacity: 2;
+  background-color: #fbf8f9;
+  border: 1px solid rgba(11, 11, 12, 0.6)
+}
+.addcardbutton:hover{
+  color: rgb(3, 3, 3);
+  box-shadow: 0 10px 30px rgba(145, 92, 182, .4);
 }
 .active{
   display: flex;
@@ -180,6 +246,11 @@ header{
   border: solid black 3px;
   margin-bottom: 50px;
   padding-right: 90px;
+  padding-bottom: 50px;
+}
+
+.rest{
+  margin-top: 135px;
 }
 
 
