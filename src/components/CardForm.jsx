@@ -15,6 +15,7 @@ const CardForm = (props) => {
     const[vendor, setVendor] = useState("");
 
     const { holder , cards } = useSelector((state) => state.cardList);
+
    
      let createCard = () => {  
         props.setaddedcard(true)

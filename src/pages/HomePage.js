@@ -12,7 +12,7 @@ const Home = () => {
     }
     
     return ( 
-    <div>
+    <div className="home">
     {!started ? <button className="startbutton" onClick={() => start()}>Start Application</button>: <Wallet/> }
         
     </div> );

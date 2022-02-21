@@ -44,23 +44,14 @@ const cardListSlice = createSlice({
          deleteCard: (state, {payload}) =>{
             let filteredcards =  state.cards.filter((card) => card.id !== payload);
             return {...state , cards: filteredcards}
+        },
+        setActive: (state, {payload}) =>{
+            let filteredcards =  state.cards.filter((card) => card.id !== payload.id);
+            filteredcards.splice(0,0,payload);
+            return{ ...state, cards: filteredcards}
+            
+
         }
-        //Använda filter och splice som detta exempel.
-        // case DELETE_TODO: 
-        //     const filteredTodos = state.todos.filter(todo => todo.id !==                                                                       action.payload)
-        //     return { 
-        //     ...state, 
-        //     todos: filteredTodos
-        // }
-        // case INSERT_TODO: {
-        //     const newArray = [...state.todos]; //Copying state array
-        //     newArray.splice(2, 0, action.payload);
-        //     //using splice to insert at an index
-        //    return {
-        //     ...state,
-        //     todos: newArray //reassigning todos array to new array
-        //     }
-        //    }
     },
 
     extraReducers: {
@@ -82,6 +73,6 @@ const cardListSlice = createSlice({
 
 })
 
-export const {addCard, startApp, deleteCard} = cardListSlice.actions; 
+export const {addCard, startApp, deleteCard, setActive} = cardListSlice.actions; 
  
 export default  cardListSlice.reducer;

@@ -1,7 +1,7 @@
 import {useSelector} from "react-redux"
 import Card from "../components/Card"
 import {Link} from "react-router-dom"
-import {deleteCard} from "../redux/cardListSlice"
+import {deleteCard, setActive} from "../redux/cardListSlice"
 import { useDispatch } from "react-redux"
 
 
@@ -10,8 +10,11 @@ const Wallet = () => {
     const { holder, cards, status } = useSelector((state) => state.cardList);
     // console.log(holder.firstName)
     console.log(cards);
-   
-   
+
+    window.addEventListener("beforeunload", function (e) {
+    e.preventDefault();
+    e.returnValue = "";})
+
     return ( 
     <div>
         <div>
@@ -53,7 +56,7 @@ const Wallet = () => {
                 />
                 
                     <button onClick={() => dispatch(deleteCard(card.id))} style={{position: "absolute",marginLeft:380, marginTop: -260, width: 150, fontSize: 25}}>Remove</button>
-                    <button style={{position: "absolute",marginLeft:380, marginTop: -200, width: 150, fontSize: 25}}>set Active</button>
+                    <button onClick={() => dispatch(setActive(card))} style={{position: "absolute",marginLeft:380, marginTop: -200, width: 150, fontSize: 25}}>set Active</button>
                 
                 </div>
                
