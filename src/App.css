@@ -6,12 +6,21 @@ body{
 }
 
 header{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 3rem;
+  background-image: linear-gradient(90deg, #0fb668, #19e0e0);
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid black 2px;
+  
   height: 200px;
   border-radius: 50px;
+}
+.walletname{
+  font-size: 3rem;
+  color: #09077c;
+  
 }
 
 .container{
@@ -35,10 +44,49 @@ header{
   transition: transform 2s;
   transform-style: preserve-3d;
 }
-.front, .back{
+.front1, .back1{
   width: 100%;
   height: 100%;
   background-image: linear-gradient(45deg, #f10c58, #0e1b1b);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 1;
+  backface-visibility: hidden;
+}
+.front2, .back2{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #121313, #0c6110);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 1;
+  backface-visibility: hidden;
+}
+.front3, .back3{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #f7f315, #1612e0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 1;
+  backface-visibility: hidden;
+}
+.front4, .back4{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #080a08, #d4f0f1);
   position: absolute;
   top: 0;
   left: 0;
@@ -103,21 +151,50 @@ header{
   margin-top: 10px;
   font-size: 14px;
 }
-.back{
+.back1{
   transform: rotateY(180deg);
 }
-.card:hover .front{
+.card:hover .front1{
   transform: rotateY(-180deg);
 }
-.card:hover .back{
+.card:hover .back1{
+  transform: rotateY(0);
+}
+.back2{
+  transform: rotateY(180deg);
+}
+.card:hover .front2{
+  transform: rotateY(-180deg);
+}
+.card:hover .back2{
+  transform: rotateY(0);
+}
+.back3{
+  transform: rotateY(180deg);
+}
+.card:hover .front3{
+  transform: rotateY(-180deg);
+}
+.card:hover .back3{
+  transform: rotateY(0);
+}
+.back4{
+  transform: rotateY(180deg);
+}
+.card:hover .front4{
+  transform: rotateY(-180deg);
+}
+.card:hover .back4{
   transform: rotateY(0);
 }
 .credit-form{
   display: absolute;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(30deg, #ddbd0b, #08c0c0);
   width: 1000px;
-  border: solid black 2px;
+  border: solid black 4px;
+  border-radius: 25px;
   margin-left: 23%;
 }
 .formcard{
@@ -152,7 +229,6 @@ header{
   margin-left: 30%;
 }
 .vendor-cvv{
-  
   align-items: center;
   width: 400px;
   margin-left: 30%;
@@ -171,7 +247,7 @@ header{
 .gohome{
   position: absolute;
   margin-left: 40%;
-  margin-top: 40px;
+  margin-top: 100px;
   font-size: 1.8rem;
   outline: none;
   text-decoration: none;
@@ -206,8 +282,8 @@ header{
   text-transform: uppercase;
   height: 120px;
   width: 420px;
-  opacity: 2;
-  background-color: #fbf8f9;
+  opacity: 1;
+  background-color: #e1ecec;
   border: 1px solid rgba(11, 11, 12, 0.6)
 }
 .startbutton:hover{
@@ -241,6 +317,8 @@ header{
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  color: #e1ecec;
+  background-image: linear-gradient(45deg, #080802, #f1ef7f);
   margin-left: 20%;
   width: 1000px;
   border: solid black 3px;
@@ -250,7 +328,27 @@ header{
 }
 
 .rest{
-  margin-top: 135px;
+  margin-top: 100px;
+}
+.max{
+  font-size: 3rem;
+  color: #09077c;
+  margin-bottom: -300px;
+}
+.success{
+  position: relative;
+  font-size: 3rem;
+  margin-top: 100px;
+  animation-name: moving;
+  animation-duration: 12s;
+}
+@keyframes moving {
+  0%   {color:rgb(4, 0, 255); left:0px; top:0px;}
+  20%  {-color:rgb(0, 76, 255); left:600px; top:0px;}
+  40%  {color:rgb(12, 47, 45); left:600px; top:400px;}
+  60%  {color:rgb(23, 0, 128); left:-600px; top:400px;}
+  80% {color:rgb(29, 26, 26); left:-600px; top:0px;}
+  100% {color:#09077c; left: 0px; top: 0px;}
 }
 
 

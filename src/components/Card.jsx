@@ -6,7 +6,7 @@ const Card = (props) => {
     let value3 = props.cardnumber3;
     let value4 = props.cardnumber4;
     let cardvendor = "";
-    const { holder } = useSelector((state) => state.cardList);
+    const { holder, cards } = useSelector((state) => state.cardList);
 
     if(props.vendor ==="Visa"){
         cardvendor = "visa";
@@ -18,14 +18,15 @@ const Card = (props) => {
         cardvendor = "american"
     }
     let source = "images/"+cardvendor+".png"
-
+    
     return ( 
         <div>
+            
             <div className="container">
 
                 <div className="card">
                     <div className="card-inner">
-                        <div className="front">
+                        <div className="front1" id="front">
                             <img src="images/map.png" className="map-img" alt="" />
                             <div className="row">
                                 <img src="images/chip.png" width="80px" alt="" />
@@ -46,7 +47,7 @@ const Card = (props) => {
                                 <p> {props.month} / {props.year}</p>
                             </div>
                         </div>
-                        <div className="back">
+                        <div className="back1" id="back">
                             <img src="images/map.png" className="map-img" alt="" />
                             <div className="bar"></div>
                             <div className="row card-cvv">

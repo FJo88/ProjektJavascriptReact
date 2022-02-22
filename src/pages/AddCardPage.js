@@ -10,7 +10,7 @@ const AddCardPage = () => {
         
     return ( 
         <div>
-            {addedCard ? "Succesfully added your new card!": <CardForm setaddedcard={setAddedCard}/>}
+            {addedCard ? <h1 className="success">Succesfully added your new card!</h1>: <CardForm setaddedcard={setAddedCard}/>}
             <Link to="/"><button className="gohome">Go to WalletPage</button></Link>
         </div>
      );

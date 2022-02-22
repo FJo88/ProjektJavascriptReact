@@ -5,6 +5,7 @@ import {deleteCard, setActive} from "../redux/cardListSlice"
 
 
 
+
 const Wallet = () => {
     const dispatch = useDispatch();
     const { cards, holder } = useSelector((state) => state.cardList);
@@ -14,11 +15,10 @@ const Wallet = () => {
     window.addEventListener("beforeunload", function (e) {
     e.preventDefault();
     e.returnValue = "";})
-
-
+   
     return ( 
     <div>
-        <h1>{holder.firstName} {holder.lastName}´s-Wallet: </h1>
+        <h1 className="walletname">{holder.firstName} {holder.lastName}´s E-Wallet </h1>
         <div>
             {cards.slice(0,1).map((card, i) =>{
                 return(
@@ -34,12 +34,13 @@ const Wallet = () => {
                         year={card.year}
                         cvv={card.cvv}
                         vendor={card.vendor}
+                        color={card.color}
                         />
                     </div>
                 )
             })}
             <div>
-            {cards.length < 4 ? <Link to={"/addcard"}><button className="addcardbutton">Add new Card</button></Link>: <h2>You reached max number of cards!</h2>}
+            {cards.length < 4 ? <Link to={"/addcard"}><button className="addcardbutton">Add new Card</button></Link>: <h1 className="max">You reached max number of cards!</h1>}
             </div>
         </div>
         <div className="rest">
@@ -57,6 +58,7 @@ const Wallet = () => {
                     year={card.year}
                     cvv={card.cvv}
                     vendor={card.vendor}
+                    color={card.color}
                 />
                 
                     <button onClick={() => dispatch(deleteCard(card.id))} style={{position: "absolute",marginLeft:380, marginTop: -260, width: 150, fontSize: 25}}>Remove</button>

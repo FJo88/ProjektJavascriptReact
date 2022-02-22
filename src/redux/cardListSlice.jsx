@@ -28,7 +28,8 @@ const cardListSlice = createSlice({
             month: "3",
             year: "25",
             vendor: "visa",
-            cvv: "666"
+            cvv: "666",
+            color: 1
         }
     ],
         status: null,

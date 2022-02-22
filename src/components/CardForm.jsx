@@ -13,6 +13,7 @@ const CardForm = (props) => {
     const[year, setYear] = useState(0);
     const[cvv, setCvv] = useState(0);
     const[vendor, setVendor] = useState("");
+    const[color, setColor] = useState(1)
 
     const { holder , cards } = useSelector((state) => state.cardList);
 
@@ -32,7 +33,9 @@ const CardForm = (props) => {
         month: month,
         year: year,
         vendor: vendor,
-        cvv: cvv
+        cvv: cvv,
+        color: color
+        
      }))
      console.log(cards);
     };
@@ -52,6 +55,15 @@ const CardForm = (props) => {
         let value = selected.value;
         setVendor(value);
     }
+    let getColor = () => {
+        let front = document.getElementById("front");
+        let back = document.getElementById("back")
+        let selected = document.getElementById("color").value;
+        front.className = "front"+selected;
+        back.className = "back"+selected;
+        console.log(selected);
+        setColor(+selected);
+    }
     
     useEffect(() => {
 
@@ -69,6 +81,7 @@ const CardForm = (props) => {
                 year={year}
                 cvv={cvv}
                 vendor={vendor}
+                color={color}
                 />
             </div> 
             <form id="creditForm" onSubmit={() => {createCard()}}>
@@ -140,6 +153,17 @@ const CardForm = (props) => {
                                 </select>
                             </div>
                         </div>
+                        {/* <div>
+                            <h4>Choose Style</h4>
+                            <div className="color">
+                                <select id="color" onChange={getColor} required>
+                                    <option value="1">RaspberryLicorice</option>
+                                    <option value="2">BlackGrapes</option>
+                                    <option value="3">SwedishBlueberry</option>
+                                    <option value="4">MintyBlackberries</option>
+                                </select>
+                            </div>
+                        </div> */}
                             <div className="cvv">
                                 <h4>Choose CVV Digits in pattern: XXX</h4>
                                 <input type="text" name="cvv" id="cvv" pattern="[0-9]{3}" maxLength="3"  onChange={(e) => {
