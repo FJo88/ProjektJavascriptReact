@@ -137,6 +137,9 @@ const CardForm = (props) => {
                             <option value="24">2024</option>
                             <option value="25">2025</option>
                             <option value="26">2026</option>
+                            <option value="27">2027</option>
+                            <option value="28">2028</option>
+                            <option value="29">2029</option>
                         </select>
                         </div>
                     </div>
@@ -153,17 +156,18 @@ const CardForm = (props) => {
                                 </select>
                             </div>
                         </div>
-                        {/* <div>
+                        <div>
                             <h4>Choose Style</h4>
                             <div className="color">
                                 <select id="color" onChange={getColor} required>
                                     <option value="1">RaspberryLicorice</option>
                                     <option value="2">BlackGrapes</option>
-                                    <option value="3">SwedishBlueberry</option>
+                                    <option value="3">LemonBlueberry</option>
                                     <option value="4">MintyBlackberries</option>
+                                    <option value="5">RedRubarb</option>
                                 </select>
                             </div>
-                        </div> */}
+                        </div>
                             <div className="cvv">
                                 <h4>Choose CVV Digits in pattern: XXX</h4>
                                 <input type="text" name="cvv" id="cvv" pattern="[0-9]{3}" maxLength="3"  onChange={(e) => {

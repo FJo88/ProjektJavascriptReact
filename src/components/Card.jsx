@@ -26,7 +26,7 @@ const Card = (props) => {
 
                 <div className="card">
                     <div className="card-inner">
-                        <div className="front1" id="front">
+                        <div className={`front${props.color}`} id="front">
                             <img src="images/map.png" className="map-img" alt="" />
                             <div className="row">
                                 <img src="images/chip.png" width="80px" alt="" />
@@ -47,7 +47,7 @@ const Card = (props) => {
                                 <p> {props.month} / {props.year}</p>
                             </div>
                         </div>
-                        <div className="back1" id="back">
+                        <div className={`back${props.color}`} id="back">
                             <img src="images/map.png" className="map-img" alt="" />
                             <div className="bar"></div>
                             <div className="row card-cvv">

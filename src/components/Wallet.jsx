@@ -4,18 +4,18 @@ import {Link} from "react-router-dom"
 import {deleteCard, setActive} from "../redux/cardListSlice"
 
 
-
-
 const Wallet = () => {
     const dispatch = useDispatch();
     const { cards, holder } = useSelector((state) => state.cardList);
-    
     console.log(cards);
 
     window.addEventListener("beforeunload", function (e) {
     e.preventDefault();
     e.returnValue = "";})
-   
+    
+    
+    
+
     return ( 
     <div>
         <h1 className="walletname">{holder.firstName} {holder.lastName}´s E-Wallet </h1>
@@ -46,6 +46,7 @@ const Wallet = () => {
         <div className="rest">
         {cards.slice(1,4).map((card, i) => {
         return (
+            
             <div key={i} style={{marginTop:-180}}>
                <div style={{zIndex:i-1, position: "absolute", marginTop:(i+1)*200, marginLeft: 700 }}>
                 <Card 
