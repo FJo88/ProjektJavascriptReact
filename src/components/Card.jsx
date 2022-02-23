@@ -6,7 +6,7 @@ const Card = (props) => {
     let value3 = props.cardnumber3;
     let value4 = props.cardnumber4;
     let cardvendor = "";
-    const { holder, cards } = useSelector((state) => state.cardList);
+    const { holder} = useSelector((state) => state.cardList);
 
     if(props.vendor ==="Visa"){
         cardvendor = "visa";
@@ -21,9 +21,7 @@ const Card = (props) => {
     
     return ( 
         <div>
-            
             <div className="container">
-
                 <div className="card">
                     <div className="card-inner">
                         <div className={`front${props.color}`} id="front">
@@ -71,5 +69,4 @@ const Card = (props) => {
         </div>
      );
 }
- 
 export default Card;

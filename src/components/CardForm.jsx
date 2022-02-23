@@ -15,10 +15,9 @@ const CardForm = (props) => {
     const[vendor, setVendor] = useState("");
     const[color, setColor] = useState(1)
 
-    const { holder , cards } = useSelector((state) => state.cardList);
+    const { holder } = useSelector((state) => state.cardList);
 
-   
-     let createCard = () => {  
+    let createCard = () => {  
         props.setaddedcard(true)
         dispatch(addCard({
         id: Date.now(),
@@ -35,9 +34,7 @@ const CardForm = (props) => {
         vendor: vendor,
         cvv: cvv,
         color: color
-        
-     }))
-     console.log(cards);
+        }))
     };
     
     let getMonth = () => {
@@ -45,7 +42,7 @@ const CardForm = (props) => {
        let value = selected.value;
        setMonth(value);
     }
-   let getYear = () => {
+    let getYear = () => {
         let selected = document.getElementById("year");
         let value = selected.value;
         setYear(value);
@@ -66,7 +63,6 @@ const CardForm = (props) => {
     }
     
     useEffect(() => {
-
     }, [cardnumber1,cardnumber2,cardnumber3,cardnumber4,cvv])
 
     return ( 
@@ -175,14 +171,9 @@ const CardForm = (props) => {
                                 }} required/>
                             </div>
                     </div>
-                
-                    <button className="submit" type="submit">Add card to Wallet</button>
-                    
+                <button className="submit" type="submit">Add card to Wallet</button>
             </form>
-   
-            
         </div>
      );
 }
- 
 export default CardForm;

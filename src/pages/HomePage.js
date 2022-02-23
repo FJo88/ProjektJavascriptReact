@@ -12,9 +12,9 @@ const Home = () => {
     }
     
     return ( 
-    <div className="home">
-    {!started ? <button className="startbutton" onClick={() => start()}>Start Application</button>: <Wallet/> }
-    </div> );
+        <div className="home">
+        {!started ? <button className="startbutton" onClick={() => start()}>Start Application</button>: <Wallet/> }
+        </div> );
 }
  
 export default Home;

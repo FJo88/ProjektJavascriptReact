@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-
 export const getHolder = createAsyncThunk("cardList/getHolder", async () => {
     let response = await fetch("https://randomuser.me/api/");
     let json = await response.json();
@@ -13,8 +12,7 @@ const cardListSlice = createSlice({
         holder: {
             firstName:"",
             lastName:""
-        }
-        ,
+        },
         cards: [{
             id: Date.now(),
             cardnumber1: "1337",
@@ -30,8 +28,7 @@ const cardListSlice = createSlice({
             vendor: "visa",
             cvv: "666",
             color: 1
-        }
-    ],
+        }],
         status: null,
         started: false
     },
@@ -50,13 +47,9 @@ const cardListSlice = createSlice({
             let filteredcards =  state.cards.filter((card) => card.id !== payload.id);
             filteredcards.splice(0,0,payload);
             return{ ...state, cards: filteredcards}
-            
-
         }
     },
-
     extraReducers: {
-
         [getHolder.fulfilled]: (state, {payload}) => {
             state.holder.firstName = payload.results[0].name.first.toUpperCase();
             state.cards[0].holder.firstName = payload.results[0].name.first.toUpperCase();
@@ -70,10 +63,7 @@ const cardListSlice = createSlice({
         [getHolder.rejected]: (state) => {
             state.status = "Failed to fetch holder.";
     }
-}
-
-})
-
+}})
 export const {addCard, startApp, deleteCard, setActive} = cardListSlice.actions; 
  
 export default  cardListSlice.reducer;
