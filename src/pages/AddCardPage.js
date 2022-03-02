@@ -2,6 +2,9 @@ import {Link} from "react-router-dom"
 import CardForm from "../components/CardForm"
 import {useState } from "react"
 
+// Kort-sidan. Har en styrvariabel för att avgöra om man fyllt i formen korrekt och visar då endast en knapp för att
+// gå tillbaka till startsidan. Knappen finns även om du inte vill lägga till ett kort. Så länge addedCard är false så 
+// renderas CardFormkomponenten.
 const AddCardPage = () => {
     const[addedCard, setAddedCard] = useState(false)
 

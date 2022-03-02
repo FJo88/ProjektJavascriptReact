@@ -3,6 +3,7 @@ import {useState, useEffect} from "react"
 import { useDispatch, useSelector} from "react-redux"
 import {addCard} from "../redux/cardListSlice"
 
+// CardFormkomponenten. Innehåller states för att göra kortet dynamiskt när det skapas. 
 const CardForm = (props) => {
     const dispatch = useDispatch();            
     const[cardnumber1, setCardnumber1] = useState(0);  
@@ -14,9 +15,9 @@ const CardForm = (props) => {
     const[cvv, setCvv] = useState(0);
     const[vendor, setVendor] = useState("");
     const[color, setColor] = useState(1)
-
+// Hämtar holder för att rendera på kortet från start
     const { holder } = useSelector((state) => state.cardList);
-
+// Funktionen för att skapa kortet med alla värden och dispatchar addCard
     let createCard = () => {  
         props.setaddedcard(true)
         dispatch(addCard({
@@ -36,7 +37,7 @@ const CardForm = (props) => {
         color: color
         }))
     };
-    
+// Funktioner för att sätta dropdown-värdena dynamiskt
     let getMonth = () => {
        let selected = document.getElementById("month");
        let value = selected.value;
@@ -61,10 +62,10 @@ const CardForm = (props) => {
         console.log(selected);
         setColor(+selected);
     }
-    
+// Läser av inputfälten
     useEffect(() => {
     }, [cardnumber1,cardnumber2,cardnumber3,cardnumber4,cvv])
-
+// Returnerar en Cardkomponent som visualiserar det färdiga kortet. Värdens är dynamiska och ändras när man ändrar i Formen.
     return ( 
         <div className="credit-form">
             <div className="formcard">
@@ -79,7 +80,8 @@ const CardForm = (props) => {
                 vendor={vendor}
                 color={color}
                 />
-            </div> 
+            </div>
+{/* Form med inputfält, dropdowns och knapp. Begränsningar för inputfält samt attribut för att koppla logik  */}
             <form id="creditForm" onSubmit={() => {createCard()}}>
                 <h2>Credit Card Details</h2>
                 <div className="form-body">

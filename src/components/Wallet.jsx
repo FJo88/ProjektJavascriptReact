@@ -3,15 +3,16 @@ import Card from "../components/Card"
 import {Link} from "react-router-dom"
 import {deleteCard, setActive} from "../redux/cardListSlice"
 
-
+// Walletkomponenten. Hämtar holder och cards-arrayen.
 const Wallet = () => {
 const dispatch = useDispatch();
 const { cards, holder } = useSelector((state) => state.cardList);
 
+// Om man trycker refresh så får man en alert via nedan kodrader. Man vill/kan nästan inte disabla refresh på webbsidor.
 window.addEventListener("beforeunload", function (e) {
 e.preventDefault();
 e.returnValue = "";})
-    
+// Renderar det aktiva kortet samt en header med holderns namn
 return ( 
     <div>
         <h1 className="walletname">{holder.firstName} {holder.lastName}´s E-Wallet </h1>
@@ -38,6 +39,9 @@ return (
             {cards.length < 4 ? <Link to={"/addcard"}><button className="addcardbutton">Add new Card</button></Link>: <h1 className="max">You reached max number of cards!</h1>}
             </div>
         </div>
+        {/* Renderar resterande kort med knappar för att ändra kortet till aktivt eller för att ta bort kortet 
+            Kör även lite styling. 
+        */}
         <div className="rest">
         {cards.slice(1,4).map((card, i) => {
         return (

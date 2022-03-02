@@ -1,5 +1,5 @@
 import { useSelector} from "react-redux"
-
+// Cardkomponenten. Tar emot props.
 const Card = (props) => {
     let value1 = props.cardnumber1;
     let value2 = props.cardnumber2;
@@ -7,7 +7,7 @@ const Card = (props) => {
     let value4 = props.cardnumber4;
     let cardvendor = "";
     const { holder} = useSelector((state) => state.cardList);
-
+// Väljer vilken kortutgivare beroende på form-inputen
     if(props.vendor ==="Visa"){
         cardvendor = "visa";
     }
@@ -18,7 +18,7 @@ const Card = (props) => {
         cardvendor = "american"
     }
     let source = "images/"+cardvendor+".png"
-    
+// Renderar kortet med alla olika värden från form eller det första manuellt skapade kortet.
     return ( 
         <div>
             <div className="container">
@@ -28,7 +28,7 @@ const Card = (props) => {
                             <img src="images/map.png" className="map-img" alt="" />
                             <div className="row">
                                 <img src="images/chip.png" width="80px" alt="" />
-                                <img src={source} width="90px" alt=""/>
+                                <img src={source} width="80px" alt=""/>
                             </div>
                             <div className="row card-no">
                                 <p>{value1}</p>

@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
+// Hämtar data från API
 export const getHolder = createAsyncThunk("cardList/getHolder", async () => {
     let response = await fetch("https://randomuser.me/api/");
     let json = await response.json();
     return json;
 })
-
+// Skapar cardListSlice som har 4 initial globala states. 
 const cardListSlice = createSlice({
     name: "cardList",
     initialState: {
@@ -32,6 +32,7 @@ const cardListSlice = createSlice({
         status: null,
         started: false
     },
+// Reducers
     reducers: { 
         addCard: (state, {payload}) =>{
             state.cards.push(payload);
@@ -39,7 +40,7 @@ const cardListSlice = createSlice({
         startApp: (state, {payload}) =>{
             state.started = payload;
         },
-         deleteCard: (state, {payload}) =>{
+        deleteCard: (state, {payload}) =>{
             let filteredcards =  state.cards.filter((card) => card.id !== payload);
             return {...state , cards: filteredcards}
         },
@@ -49,6 +50,7 @@ const cardListSlice = createSlice({
             return{ ...state, cards: filteredcards}
         }
     },
+// ExtraReducers för datahämtningen
     extraReducers: {
         [getHolder.fulfilled]: (state, {payload}) => {
             state.holder.firstName = payload.results[0].name.first.toUpperCase();
